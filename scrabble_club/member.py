@@ -27,6 +27,10 @@ class Member:
         else:
             return 0
 
+    @property
+    def board_entry(self):
+        return [f'{self.name} ({self.nick_name})', self.average_score, self.best_score]
+
     def __eq__(self, other):
         return self.average_score == other.average_score
 
