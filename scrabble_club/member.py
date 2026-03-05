@@ -3,12 +3,12 @@
 
 class Member:
 
-    def __init__(self, member_id, name, nick_name):
+    def __init__(self, member_id, name, nick_name, games=[]):
         self.member_id = member_id
         self.name = name
         self.nick_name = nick_name
 
-        self.games = []
+        self.games = games
 
     def play_game(self, new_score):
         self.games.append(new_score)

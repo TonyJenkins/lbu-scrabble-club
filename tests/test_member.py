@@ -11,6 +11,17 @@ class MemberTests(unittest.TestCase):
         self.assertEqual(member.nick_name, "JD")
         self.assertEqual(member.games, [])
 
+    def test_init_with_games_parameter(self):
+        games = [250, 300, 275]
+        member = Member(11, "John Doe", "JD", games)
+
+        self.assertEqual(member.member_id, 11)
+        self.assertEqual(member.name, "John Doe")
+        self.assertEqual(member.nick_name, "JD")
+        self.assertEqual(member.games, games)
+        self.assertEqual(member.average_score, 275.0)
+        self.assertEqual(member.best_score, 300)
+
     def test_average_score_is_zero_when_no_games(self):
         member = Member(1, "A", "A")
         self.assertEqual(member.average_score, 0)
@@ -76,4 +87,3 @@ class MemberTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
