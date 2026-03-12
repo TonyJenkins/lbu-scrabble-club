@@ -28,18 +28,3 @@ class LeaderBoard:
         headers = ["Name", "Average Score", "Best Score"]
         return tabulate([player.board_entry for player in self.players], headers=headers, tablefmt="fancy_grid")
 
-
-if __name__ == "__main__":
-    from member import Member
-
-    alice = Member(1, 'Alice', 'Al', [150, 275, 160, 298])
-    brian = Member(2, 'Brian', 'Bri', [100, 285, 240, 300])
-    celia = Member(3, 'Celia', 'Celia', [302, 285, 290, 308])
-
-    lb = LeaderBoard()
-    lb.add_player(alice)
-    lb.add_player(brian)
-    lb.add_player(celia)
-
-    lb.sort_board()
-    lb.display_board()

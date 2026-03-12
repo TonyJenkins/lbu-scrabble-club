@@ -3,12 +3,12 @@
 
 class Member:
 
-    def __init__(self, member_id, name, nick_name, games=[]):
+    def __init__(self, member_id, name, nick_name, games=None):
         self.member_id = member_id
         self.name = name
         self.nick_name = nick_name
 
-        self.games = games
+        self.games = games if games else []
 
     def play_game(self, new_score):
         self.games.append(new_score)
@@ -38,7 +38,7 @@ class Member:
         return self.average_score < other.average_score
 
     def __str__(self):
-        return f"{self.member_id}, {self.name}, {self.nick_name}, {self.average_score}, {self.best_score}"
+        return f"{self.member_id}, {self.name}, {self.nick_name}, {self.average_score}"
 
     def __repr__(self):
         return (

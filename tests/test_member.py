@@ -36,6 +36,10 @@ class MemberTests(unittest.TestCase):
         self.assertEqual(member.games, [200, 300, 250])
         self.assertEqual(member.average_score, 250)
 
+    def test_best_score_is_zero_when_no_games(self):
+        member = Member(1, "A", "A")
+        self.assertEqual(member.best_score, 0)
+
     def test_play_game_updates_best_score(self):
         member = Member(2, "B", "Bee")
 
@@ -72,6 +76,14 @@ class MemberTests(unittest.TestCase):
             higher.play_game(score)
 
         self.assertTrue(lower < higher)
+
+    def test_board_entry_returns_name_average_and_best_score(self):
+        member = Member(7, "Sam", "S")
+        member.play_game(300)
+        member.play_game(360)
+
+        self.assertEqual(member.board_entry, ["Sam (S)", 330.0, 360])
+
 
     def test_str_and_repr_formats(self):
         member = Member(7, "Sam", "S")
